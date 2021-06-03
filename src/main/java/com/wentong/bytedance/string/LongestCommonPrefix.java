@@ -1,4 +1,4 @@
-package com.wentong.bytedance;
+package com.wentong.bytedance.string;
 
 
 // https://leetcode-cn.com/explore/featured/card/bytedance/242/string/1014/

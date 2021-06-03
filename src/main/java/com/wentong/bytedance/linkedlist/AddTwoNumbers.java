@@ -1,4 +1,4 @@
-package com.wentong.bytedance;
+package com.wentong.bytedance.linkedlist;
 
 public class AddTwoNumbers {
 
