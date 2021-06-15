@@ -1,4 +1,4 @@
-package com.wentong.bytedance.linkedlist;
+package com.wentong.bytedance.linkedlist.exam;
 
 // https://leetcode-cn.com/explore/featured/card/bytedance/244/linked-list-and-tree/1048/
 public class MergeTwoList {

@@ -1,4 +1,4 @@
-package com.wentong.bytedance.linkedlist;
+package com.wentong.bytedance.linkedlist.exam;
 
 import java.util.HashMap;
 import java.util.Map;

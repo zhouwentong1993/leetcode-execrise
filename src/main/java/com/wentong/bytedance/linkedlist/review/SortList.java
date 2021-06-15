@@ -1,4 +1,4 @@
-package com.wentong.bytedance.linkedlist2;
+package com.wentong.bytedance.linkedlist.review;
 
 public class SortList {
     // 归并排序
