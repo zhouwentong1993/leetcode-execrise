@@ -2,24 +2,36 @@ package com.wentong.bytedance.linkedlist;
 
 public class MergeKLists {
 
+    // 循环赋值
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) {
             return null;
         }
-        ListNode result = null;
-        ListNode listNode = mergeTwoLists(lists[0], result);
+        ListNode listNode = null;
         for (int i = 1; i < lists.length; i++) {
             listNode = mergeTwoLists(lists[i], listNode);
-            print(listNode);
         }
         return listNode;
     }
 
-    private void print(ListNode result) {
-        while (result != null) {
-//            System.out.print(result.val + "-");
-            result = result.next;
+    // 采用分治法，将任务分割，类似于二分法
+    public ListNode mergeKLists1(ListNode[] lists) {
+        if (lists.length == 0) {
+            return null;
         }
+
+        return merge(lists, 0, lists.length - 1);
+    }
+
+    private ListNode merge(ListNode[] lists, int left, int right) {
+        if (left == right) {
+            return lists[left];
+        }
+        if (left > right) {
+            return null;
+        }
+        int mid = (left + right) / 2;
+        return mergeTwoLists(merge(lists, left, mid), merge(lists, mid + 1, right));
     }
 
     private ListNode mergeTwoLists(ListNode first, ListNode second) {
@@ -27,10 +39,10 @@ public class MergeKLists {
         ListNode start = prev;
         while (first != null && second != null) {
             if (first.val < second.val) {
-                prev.next = new ListNode(first.val);
+                prev.next = first;
                 first = first.next;
             } else {
-                prev.next = new ListNode(second.val);
+                prev.next = second;
                 second = second.next;
             }
             prev = prev.next;
