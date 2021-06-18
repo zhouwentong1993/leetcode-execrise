@@ -1,5 +1,7 @@
 package com.wentong.bytedance.linkedlist.learn;
 
+import com.wentong.bytedance.linkedlist.ListNode;
+
 public class ListNodeBasicOperation {
 
     public static void main(String[] args) {

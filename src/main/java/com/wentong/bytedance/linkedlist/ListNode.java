@@ -1,4 +1,4 @@
-package com.wentong.bytedance.linkedlist.learn;
+package com.wentong.bytedance.linkedlist;
 
 
 import java.util.StringJoiner;

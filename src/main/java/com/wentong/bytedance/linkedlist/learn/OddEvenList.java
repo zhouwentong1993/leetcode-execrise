@@ -1,5 +1,7 @@
 package com.wentong.bytedance.linkedlist.learn;
 
+import com.wentong.bytedance.linkedlist.ListNode;
+
 public class OddEvenList {
 
     public ListNode oddEvenList(ListNode head) {

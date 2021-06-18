@@ -1,5 +1,7 @@
 package com.wentong.bytedance.linkedlist.learn;
 
+import com.wentong.bytedance.linkedlist.ListNode;
+
 public class RemoveNthFromEnd {
 
     // 通过快慢指针，快指针负责探测链表长度，慢指针可能有用，也可能没用
