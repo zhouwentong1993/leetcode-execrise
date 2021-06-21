@@ -46,7 +46,7 @@ public class GetIntersectionNode {
         }
     }
 
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
 
