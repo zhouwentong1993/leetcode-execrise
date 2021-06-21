@@ -2,7 +2,30 @@ package com.wentong.bytedance.linkedlist.exam;
 
 import com.wentong.bytedance.linkedlist.ListNode;
 
+import java.util.concurrent.TimeUnit;
+
 public class Partition {
+
+    public static void main(String[] args) throws InterruptedException {
+        new Thread(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName());
+        },"t1").start();
+        TimeUnit.MICROSECONDS.sleep(100);
+        new Thread(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName());
+        },"t2").start();
+
+    }
 
     /**
      * 分隔数组，通过四个变量来记住上下界
