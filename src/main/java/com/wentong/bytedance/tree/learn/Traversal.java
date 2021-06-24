@@ -1,6 +1,7 @@
 package com.wentong.bytedance.tree.learn;
 
 import com.wentong.bytedance.tree.TreeNode;
+import sun.tools.jconsole.MaximizableInternalFrame;
 
 import java.util.*;
 
@@ -80,6 +81,61 @@ public class Traversal {
             }
         }
         return list;
+    }
+
+    // 二叉树的层次遍历
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> single = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+                single.add(node.val);
+            }
+            result.add(single);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Traversal traversal = new Traversal();
+        TreeNode node = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5, new TreeNode(7), null)), new TreeNode(3, null, new TreeNode(6)));
+        traversal.depth(node, 1);
+        System.out.println(traversal.max);
+        int i = traversal.maxDepth(node);
+        System.out.println(i);
+    }
+
+    int max = 0;
+
+    private void depth(TreeNode node, int depth) {
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null) {
+            max = Math.max(depth, max);
+        }
+        depth(node.left, depth + 1);
+        depth(node.right, depth + 1);
+    }
+
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
     }
 
 }
