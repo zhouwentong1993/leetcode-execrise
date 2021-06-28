@@ -1,7 +1,6 @@
 package com.wentong.bytedance.tree.learn;
 
 import com.wentong.bytedance.tree.TreeNode;
-import sun.tools.jconsole.MaximizableInternalFrame;
 
 import java.util.*;
 
