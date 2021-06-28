@@ -1,7 +1,10 @@
-package com.wentong.bytedance.linkedlist.learn;
+package com.wentong.bytedance.tree.learn;
 
 import com.wentong.bytedance.tree.TreeNode;
 
+// 美观地打印二叉树。
+// 要求数位对齐
+// 核心就是计算空格数，在本题中，输出 = (高度 * 17)*空格 + (17-countOfNumbers)/2*空格 + 待打印的数字 + (17-countOfNumbers - leftSpaces) * 空格
 public class PrintTreeNode {
 
     public static void main(String[] args) {
