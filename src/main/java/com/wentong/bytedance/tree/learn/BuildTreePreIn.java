@@ -5,9 +5,10 @@ import com.wentong.bytedance.tree.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BuildTree {
+public class BuildTreePreIn {
 
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    // 通过前序和中序配合，还原一棵树
+    public TreeNode BuildTreePreIn(int[] preorder, int[] inorder) {
         if (preorder == null || inorder == null) {
             return null;
         }
