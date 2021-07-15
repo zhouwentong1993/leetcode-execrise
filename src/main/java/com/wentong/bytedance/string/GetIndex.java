@@ -20,38 +20,37 @@ public class GetIndex {
     }
 
     private static int getIndex(String[] data, String str) {
+
         int left = 0;
         int right = data.length - 1;
-        while (left < right) {
-            int mid = (right - left) / 2;
-            while (data[mid] == null) {
-                mid++;
-            }
-            if (data[mid].equals(str)) {
-                int last = mid;
-                while (mid >= 0) {
-                    if (data[mid] == null) {
-                        mid--;
-                    }
-                    if (data[mid].equals(str)) {
-                        last = mid;
-                        mid--;
-                    } else {
-                        return last;
-                    }
-
+        int result = -1;
+        while (left <= right) {
+            int mid = (right + left) / 2;
+            if (data[mid] != null && data[mid].equals(str)) {
+                result = mid;
+                right = mid - 1;
+            } else if (data[mid] != null) {
+                if (data[mid].compareTo(str) > 0) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
                 }
-                return last;
-            }
-
-            if (data[mid].compareTo(str) > 0) {
-                right = mid;
-            } else if (data[mid].compareTo(str) == 0) {
-                return mid;
             } else {
-                left = mid;
+                int i = mid;
+                while (data[i] == null && i > left) {
+                    i--;
+                }
+                if (data[i] == null) {
+                    left = mid + 1;
+                } else {
+                    if (data[i].compareTo(str) >= 0) {
+                        right = i;
+                    } else {
+                        left = i + 1;
+                    }
+                }
             }
         }
-        return -1;
+        return result;
     }
 }
