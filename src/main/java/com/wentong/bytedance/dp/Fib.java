@@ -5,7 +5,6 @@ public class Fib {
         if (n == 0) {
             return 0;
         }
-        int[] dp = new int[n + 1];
         int pre2 = 0;
         int pre1 = 1;
         int res = pre1;
