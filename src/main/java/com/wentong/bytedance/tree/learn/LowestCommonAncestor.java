@@ -32,7 +32,7 @@ public class LowestCommonAncestor {
 
     // 暴力解法
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
-        Map<Integer, TreeNode> map = getNodeParentReleation(root);
+        Map<Integer, TreeNode> map = getNodeParentRelation(root);
         TreeNode pParent = map.get(p.val);
         Set<TreeNode> set = new HashSet<>();
         set.add(p);
@@ -61,7 +61,7 @@ public class LowestCommonAncestor {
 
     }
 
-    private Map<Integer, TreeNode> getNodeParentReleation(TreeNode root) {
+    private Map<Integer, TreeNode> getNodeParentRelation(TreeNode root) {
         Map<Integer, TreeNode> map = new HashMap<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
