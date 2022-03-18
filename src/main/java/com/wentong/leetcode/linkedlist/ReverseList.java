@@ -6,17 +6,18 @@ public class ReverseList {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode next = head.next;
-        ListNode temp;
+        ListNode temp = head;
+        ListNode pre = head;
         ListNode cur = head;
-        while (next != null) {
-            temp = next.next;
-            next.next = cur;
+        ListNode next = null;
+        while (cur != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
             cur = next;
-            next = temp;
         }
-        head.next = null;
-        return cur;
+        temp.next = null;
+        return pre;
     }
 
 }

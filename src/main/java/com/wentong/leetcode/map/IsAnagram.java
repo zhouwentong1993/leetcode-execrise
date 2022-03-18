@@ -10,27 +10,23 @@ public class IsAnagram {
             return false;
         }
         Map<Character, Integer> map = new HashMap<>();
-
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
-            } else {
-                map.put(c, 1);
-            }
+            map.merge(c, 1, Integer::sum);
         }
         for (int i = 0; i < t.length(); i++) {
-            char c = t.charAt(i);
-            if (!map.containsKey(c)) {
+            char c = s.charAt(i);
+            Integer times = map.get(c);
+            if (times == null) {
                 return false;
+            } else if (times == 1){
+                map.remove(c);
             } else {
-                Integer v = map.get(c);
-                if (v - 1 == 0) {
-                    map.remove(c);
-                } else {
-                    map.put(c, v - 1);
-                }
+                map.put(c, times - 1);
             }
+        }
+        if (map.size() != 0) {
+            return false;
         }
         return true;
     }

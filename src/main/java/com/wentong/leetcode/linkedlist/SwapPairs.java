@@ -8,7 +8,7 @@ public class SwapPairs {
             return head;
         }
         ListNode one = head;
-        ListNode two = one.next;
+        ListNode two = head.next;
         ListNode three = two.next;
         two.next = one;
         one.next = swapPairs(three);
